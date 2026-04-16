@@ -111,12 +111,22 @@ void loop() {
 
       // Complete this heater control control logic
 
-      if () { 
+      if (currentMillis - startTime >= 900000) {
+        digitalWrite(heater_pin, LOW);
+        
+        Serial.println("15-minute timer expired. Heater OFF.");
+
+        while(true) {delay(1000);}
 
       } 
       else if () { 
-        
+        if(tempC < 38.0) {
+          digitalWrite(heater_pin, HIGH);
+        }
+        else if(tempC > 42.0) {
+          digitalWrite(heater_pin, LOW);
 
+        }
       }
     }
   }
